@@ -10,21 +10,22 @@
 
 <body>
 <h1>Welcome to your Barbershop</h1>
-    <p th:text="'Hello, ' + ${username} + '!'" />
+<p th:text="'Hello, ' + ${username} + '!'"/>
 
-    <div>
-        <form th:action="@{/login}" method="post">>
-            <label>Username:</label>
-            <input type="text" name="username"/>
-            <label>Password:</label>
-            <input type="password" name="password"/>
-            <button type="submit" name="submitLogin">Login</button>
-        </form>
-    </div>
+<div>
+    <form th:action="@{/login}" method="post">>
+        <label>Username:</label>
+        <input type="text" name="username"/>
+        <label>Password:</label>
+        <input type="password" name="password"/>
+        <button type="submit" name="submitLogin">Login</button>
+    </form>
+</div>
+<form action="@{/appointment}" method="post">
+    <button type="submit" th:if="${username != 'anonymousUser'}" name="appointmentButton">Appointment</button>
+</form>
 
-    <button th:if="${username != 'anonymousUser'}" name="appointmentButton"> Appointment</button>
-
-    <div id="app"></div>
-    <script src="/resources/built/bundle.js"></script>
+<div id="app"></div>
+<script src="/resources/built/bundle.js"></script>
 </body>
 </html>
