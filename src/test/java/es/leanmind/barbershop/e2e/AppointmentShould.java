@@ -7,6 +7,7 @@ import es.leanmind.barbershop.helpers.IntegrationTests;
 import es.leanmind.barbershop.helpers.Properties;
 import es.leanmind.barbershop.helpers.TestFactory;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
@@ -60,13 +61,27 @@ public class AppointmentShould extends IntegrationTests {
     }
 
     @Test
-    public void be_made_by_the_owner() throws IOException, SQLException {
+    public void be_made_by_the_customer() throws IOException, SQLException {
         createEstablishment();
         doWebLogin(Configuration.ownername, Configuration.webPassword);
-        //make the appointment
-        //assert the appointment is made
+        makeAnAppointent();
+        Assert.assertTrue(isSuccessMessage());
+
+
     }
 
+    private void makeAnAppointent() {
+        browser().findElement(By.name("appointmentButton")).click();
+    }
+    private boolean isSuccessMessage() {
+        try {
+            browser().findElement(By.name("successMessageContainer"));
+            return true;
+        }
+        catch (Exception error) {
+            return false;
+        }
+    }
     private void doWebLogin(String username, String password) {
         browser().get(Configuration.webUrl + Configuration.loginUrl);
         browser().findElement(By.name("username")).sendKeys(username);

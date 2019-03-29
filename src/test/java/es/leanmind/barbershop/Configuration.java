@@ -9,7 +9,7 @@ public class Configuration {
     public static final String ownername = "barbershop@leanmind.es";
     public static final String webPassword = "12345";
     public static final String establishmentName = "Superbarbers";
-    public static final String chromeDriverPath = "./src/test/chromedriver";
+    public static final String chromeDriverPath = "./src/test/chromedriver.exe";
     public static final String dbUser = "barbershop";
     public static final String dbPassword = "12345";
     public static final String connectionBaseUrl = "jdbc:postgresql://localhost:5432/";

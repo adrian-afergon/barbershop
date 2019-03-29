@@ -51,7 +51,7 @@ You should be able to login with "barbershop@leanmind.es" and password "12345" a
       
 ### Database ###
 Passwords are hashed with BCrypt. An online tool for this could be this one:      
-      
+            
      https://www.dailycred.com/article/bcrypt-calculator
       
 ### Production ###
