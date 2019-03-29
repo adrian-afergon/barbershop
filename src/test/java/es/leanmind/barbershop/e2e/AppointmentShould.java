@@ -65,23 +65,17 @@ public class AppointmentShould extends IntegrationTests {
         createEstablishment();
         doWebLogin(Configuration.ownername, Configuration.webPassword);
         makeAnAppointent();
-        Assert.assertTrue(isSuccessMessage());
-
-
+        isSuccessMessage();
     }
 
     private void makeAnAppointent() {
         browser().findElement(By.name("appointmentButton")).click();
     }
-    private boolean isSuccessMessage() {
-        try {
-            browser().findElement(By.name("successMessageContainer"));
-            return true;
-        }
-        catch (Exception error) {
-            return false;
-        }
+
+    private void isSuccessMessage() {
+        browser().findElement(By.name("successMessageContainer"));
     }
+
     private void doWebLogin(String username, String password) {
         browser().get(Configuration.webUrl + Configuration.loginUrl);
         browser().findElement(By.name("username")).sendKeys(username);

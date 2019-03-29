@@ -22,6 +22,8 @@
         </form>
     </div>
 
+    <button th:if="${username != 'anonymousUser'}" name="appointmentButton"> Appointment</button>
+
     <div id="app"></div>
     <script src="/resources/built/bundle.js"></script>
 </body>
